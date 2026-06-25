@@ -26,6 +26,10 @@
     visibility 400ms ease;
 }
 
+body{
+  background-color: var(--mainWhite);
+}
+
 body.dark-mode .product_loader {
   background: #121212;
   color: white;
@@ -140,6 +144,7 @@ header {
   width: 100%;
   background: white;
   z-index: 1000;
+  
 }
 
 .namelogo {
@@ -168,6 +173,13 @@ header {
   position: relative;
   width: 30px;
   height: 30px;
+  transition: all 0.3s ease;
+
+}
+
+#menu-btn:hover {
+  color: var(--mainGold);
+  transform: translateX(2px);
 }
 
 #menu-btn i {
@@ -242,6 +254,10 @@ body.dark-mode .open-icon {
 
 .menu-divider {
   flex-shrink: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--mainGold);
+  margin-bottom: 20px;
 }
 
 body.dark-mode .menu-title {
@@ -273,18 +289,29 @@ body.dark-mode .menu-title {
   background: transparent;
 }
 
-.menu-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--mainGold);
-  margin-bottom: 20px;
-}
-
 .menu ul li a {
   font-size: 20px;
   color: var(--mainBlack);
   font-family: var(--mainFont);
   font-weight: var(--fontWeight);
+  position: relative;
+
+}
+
+.menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--mainGold);
+  transition: all 0.3s ease-out;
+  transform: translateX(-50%);
+}
+
+.menu ul li a:hover::after {
+  width: 100%;
 }
 
 body.dark-mode .menu ul li a {
@@ -357,6 +384,14 @@ body.dark-mode .menu ul li a {
   position: relative;
   width: 30px;
   height: 30px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+#night-mode-btn:hover {
+  transform: rotate(15deg) scale(1.1);
+  background: rgba(212, 175, 55, 0.08);
+  box-shadow: 1px 1px 20px rgba(212, 175, 55, 0.3);
 }
 
 #night-mode-btn i {
@@ -794,7 +829,6 @@ body.dark-mode .product_card {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  /* border-radius: 12px; */
 }
 
 .product_image {
@@ -1613,5 +1647,57 @@ body.dark-mode .footer_links a {
 
   .social_links {
     justify-content: center;
+  }
+}
+
+
+.skeleton_card {
+  pointer-events: none;
+}
+
+.skeleton_image,
+.skeleton_title,
+.skeleton_price {
+  position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.skeleton_image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+.skeleton_title {
+  height: 18px;
+  margin-top: 12px;
+}
+
+.skeleton_price {
+  height: 18px;
+  width: 40%;
+  margin-top: 10px;
+}
+
+.skeleton_image::after,
+.skeleton_title::after,
+.skeleton_price::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.6),
+      transparent
+    );
+  animation: skeleton-loading 1.4s infinite;
+}
+
+@keyframes skeleton-loading {
+  100% {
+    transform: translateX(100%);
   }
 }

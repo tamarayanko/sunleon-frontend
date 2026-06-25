@@ -657,7 +657,7 @@ function createProductCard(product) {
 
     const imageUrl =
 
-        `${BASE_URL}/assets/${firstVariant.cover_img.id}`;
+        `${BASE_URL}/assets/${firstVariant.cover_img.id}?width=600&format=webp&quality=82`;
 
     // PRODUCT NAME
 
@@ -805,6 +805,7 @@ function createProductCard(product) {
                         <img
                             src="${imageUrl}"
                             alt="${productName}"
+                            loading="lazy"
                             class="product_image"
                         />
                         <div class="product_colors_preview">

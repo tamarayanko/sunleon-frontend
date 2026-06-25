@@ -17,10 +17,6 @@ function finishProductLoading() {
 
     productLoaderFinished = true;
 
-    window.clearTimeout(
-        productLoaderFallback
-    );
-
     const loader =
         document.getElementById(
             "product-loader"
@@ -57,31 +53,15 @@ function waitForImage(image) {
 
     return new Promise(resolve => {
 
-        const settle = () => {
-
-            image.removeEventListener(
-                "load",
-                settle
-            );
-
-            image.removeEventListener(
-                "error",
-                settle
-            );
-
-            resolve();
-
-        };
-
         image.addEventListener(
             "load",
-            settle,
+            resolve,
             { once: true }
         );
 
         image.addEventListener(
             "error",
-            settle,
+            resolve,
             { once: true }
         );
 
@@ -328,12 +308,14 @@ async function loadProduct() {
                     image.className =
                         "single_product_image";
                     image.src =
-                        `${BASE_URL}/assets/${imageId}`;
+                        `${BASE_URL}/assets/${imageId}?width=1200&format=webp&quality=85`;
+                    image.loading =
+
+                        index === 0 ? "eager" : "lazy";
                     image.alt =
                         productTitle.textContent;
                     image.draggable = false;
                     image.decoding = "async";
-                    image.loading = "eager";
 
                     if (index === 0) {
                         image.id =
@@ -342,9 +324,15 @@ async function loadProduct() {
 
                     galleryTrack.appendChild(image);
 
-                    imagePromises.push(
-                        waitForImage(image)
-                    );
+                    if (index === 0) {
+
+                        imagePromises.push(
+
+                            waitForImage(image)
+
+                        );
+
+                    }
 
                 }
             );
@@ -522,7 +510,7 @@ async function loadProduct() {
                                         dot.classList.toggle(
                                             "active",
                                             dotIndex ===
-                                                visibleIndex
+                                            visibleIndex
                                         );
                                     }
                                 );
@@ -583,6 +571,10 @@ async function loadProduct() {
         }
 
         await galleryImagesReady;
+
+        window.clearTimeout(
+            productLoaderFallback
+        );
 
         finishProductLoading();
 

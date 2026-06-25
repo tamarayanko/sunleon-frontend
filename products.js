@@ -1,5 +1,3 @@
-console.log("Script initialized.");
-
 // =======================
 // PRODUCTS
 // =======================
@@ -287,12 +285,24 @@ async function loadProducts() {
 
         // LOOP PRODUCTS
 
+        // products.forEach(product => {
+
+        //     productsSection.innerHTML +=
+        //         createProductCard(product);
+
+        // });
+
+        let cardsHTML = "";
+
         products.forEach(product => {
 
-            productsSection.innerHTML +=
+            cardsHTML +=
                 createProductCard(product);
 
         });
+
+        productsSection.innerHTML =
+            cardsHTML;
 
     }
 
@@ -303,6 +313,26 @@ async function loadProducts() {
     }
 
 }
+
+function renderSkeletonCards() {
+
+    productsSection.innerHTML = "";
+
+    for (let i = 0; i < 10; i++) {
+
+        productsSection.innerHTML += `
+            <div class="product_card skeleton_card">
+                <div class="skeleton_image"></div>
+                <div class="skeleton_title"></div>
+                <div class="skeleton_price"></div>
+            </div>
+        `;
+
+    }
+
+}
+
+renderSkeletonCards();
 
 loadProducts();
 
