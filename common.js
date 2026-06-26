@@ -99,6 +99,89 @@ const translations = {
 
 };
 
+const instagramBtn = document.createElement("a");
+
+instagramBtn.href = "https://www.instagram.com/sunleon_store/";
+instagramBtn.target = "_blank";
+instagramBtn.rel = "noopener noreferrer";
+instagramBtn.className = "instagram-float-btn";
+
+instagramBtn.innerHTML = `
+<svg viewBox="0 0 24 24" fill="none">
+    <path d="M17 3H7C4.79 3 4 3.79 3 7V17C3 19.21 4.79 21 7 21H17C19.21 21 21 19.21 21 17V7C21 4.79 19.21 3 17 3Z"
+        stroke="currentColor"
+        stroke-width="2"/>
+    <circle cx="12" cy="12" r="4"
+        stroke="currentColor"
+        stroke-width="2"/>
+    <circle cx="17.5" cy="6.5" r="1.2"
+        fill="currentColor"/>
+</svg>
+`;
+
+document.body.appendChild(instagramBtn);
+
+instagramBtn.draggable = false;
+
+let isDragging = false;
+let startY = 0;
+let startTop = 0;
+let moved = false;
+
+const MIN_TOP = () => window.innerHeight * 0.15;
+const MAX_TOP = () => window.innerHeight * 0.85;
+
+instagramBtn.addEventListener("pointerdown", (e) => {
+    isDragging = true;
+    moved = false;
+
+    startY = e.clientY;
+    startTop = instagramBtn.offsetTop;
+
+    instagramBtn.setPointerCapture(e.pointerId);
+
+    e.preventDefault();
+});
+
+instagramBtn.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
+
+    const deltaY = e.clientY - startY;
+
+    if (Math.abs(deltaY) > 5) {
+        moved = true;
+    }
+
+    let newTop = startTop + deltaY;
+
+    newTop = Math.max(
+        MIN_TOP(),
+        Math.min(MAX_TOP(), newTop)
+    );
+
+    instagramBtn.style.top = `${newTop}px`;
+});
+
+function stopDragging() {
+    isDragging = false;
+}
+
+instagramBtn.addEventListener("pointerup", stopDragging);
+instagramBtn.addEventListener("pointercancel", stopDragging);
+
+instagramBtn.addEventListener("click", (e) => {
+    if (moved) {
+        e.preventDefault();
+        moved = false;
+    }
+});
+
+instagramBtn.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+});
+
+// header
+
 function initHeader() {
 
     const menuBtn =
