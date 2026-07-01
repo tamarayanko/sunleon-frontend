@@ -28,8 +28,7 @@ const translations = {
         <p>• Clean only with a dry or slightly damp soft cloth;</p>
         <p>• The bag has a recommended load capacity — please do not exceed the maximum weight specified in the product description, as this may affect its shape and structure;</p>
         <p>• After use, it is recommended to store the bag in its protective Dust Bag.</p>
-        <p>With proper care and use, your bag will maintain its original appearance for many seasons and remain a valuable part of your wardrobe.</p>
-    `,
+        <p>With proper care and use, your bag will maintain its original appearance for many seasons and remain a valuable part of your wardrobe.</p>`,
         shipping_text: `
             <p>We provide delivery throughout Georgia.</p>
             <p><strong>Tbilisi</strong></p>
@@ -39,14 +38,25 @@ const translations = {
             <p>• Delivery times to regions depend on the specific location;</p>
             <p>• For accurate delivery information, please contact us via direct message and provide your desired address;</p>
             <p>• Our team will provide detailed information regarding delivery times and conditions.</p>
-            <p>We are committed to ensuring that your order is delivered safely and as quickly as possible.</p>
-`,
+            <p>We are committed to ensuring that your order is delivered safely and as quickly as possible.</p>`,
         payment_text: `
             <p>We offer flexible and convenient payment methods.</p>
             <p>Payment can be made either by bank transfer or directly to the courier upon delivery.</p>
             <p>If you choose to pay the courier, the order amount is paid upon receipt of the package, while the courier service fee must be transferred to our bank account in advance.</p>
-            <p>For additional information, please contact us through our social media channels.</p>
-`
+            <p>For additional information, please contact us through our social media channels.</p>`,
+        returns_text: `
+            <p>Your satisfaction is our priority.</p>
+            <p>A return request may be submitted no later than the end of the second day following delivery. After this period, the product may only be exchanged for another available model, subject to stock availability.</p>
+            <p>Returns and exchanges do not apply to:</p>
+            <ul>
+                <li>Products that have been used;</li>
+                <li>Products damaged by the customer;</li>
+                <li>Products damaged as a result of failure to follow the care instructions.</li>
+            </ul>
+            <p>In the event of a return or exchange, the cost of courier services is the responsibility of the customer.</p>
+            <p>Refunds will be processed after the product has been received and its condition has been inspected.</p>
+            <p>We carefully inspect every product before shipment. All models undergo quality control and are dispatched only after a thorough inspection.</p>          
+            <p>The company is not responsible for any damage resulting from improper use of the product or failure to follow the provided care instructions.</p>`
 
     },
 
@@ -94,7 +104,20 @@ const translations = {
             <p>თანხის გადახდა შესაძლებელია როგორც საბანკო ანგარიშზე ჩარიცხვით, ასევე კურიერთან ადგილზე გადახდით.</p>
             <p>კურიერთან გადახდის არჩევის შემთხვევაში, შეკვეთის ღირებულებას იხდით მიღებისას, ხოლო საკურიერო მომსახურების საფასური წინასწარ ირიცხება საბანკო ანგარიშზე.</p>
             <p>დამატებითი ინფორმაციისთვის დაგვიკავშირდით სოციალური ქსელების საშუალებით.</p>
-            `
+            `,
+        returns_text: `
+            <p>თქვენი კმაყოფილება ჩვენთვის პრიორიტეტულია.</p>
+            <p>პროდუქტის დაბრუნების მოთხოვნის დაფიქსირება შესაძლებელია მიღებიდან მეორე დღის ბოლომდე. აღნიშნული ვადის გასვლის შემდეგ შესაძლებელია მხოლოდ პროდუქტის გადაცვლა სხვა სასურველ მოდელში, შესაბამისი მარაგის არსებობის შემთხვევაში.</p>
+            <p>დაბრუნება ან გადაცვლა არ ვრცელდება:</p>
+            <ul>
+                <li>გამოყენებულ პროდუქტზე;</li>
+                <li>მომხმარებლის მიერ დაზიანებულ პროდუქტზე;</li>
+                <li>პროდუქციაზე, რომლის დაზიანებაც გამოწვეულია მოვლის წესების დარღვევით.</li>
+            </ul>
+            <p>დაბრუნების ან გადაცვლის შემთხვევაში საკურიერო მომსახურების საფასურის უზრუნველყოფა ეკისრება მომხმარებელს.</p>
+            <p>დaბრუნების შემთხვევაში თანხის ანაზღაურება განხორციელდება პროდუქტის მიღებისა და მისი მდგომარეობის შემოწმების შემდეგ.</p>
+            <p>ჩვენ ვუზრუნველყოფთ თითოეული პროდუქტის სრულ შემოწმებას გაგზავნამდე — ყველა მოდელი იგზავნება ხარისხის კონტროლის გავლით და სათანადოდ შემოწმებულ მდგომარეობაში.</p>
+            <p>კომპანია პასუხისმგებლობას არ იღებს იმ დაზიანებებზე, რომლებიც გამოწვეულია პროდუქტის არასწორი გამოყენებით ან მოვლის ინსტრუქციის უგულებელყოფით.</p>`
     }
 
 };
@@ -373,6 +396,18 @@ function changeLanguage(lang) {
 
     }
 
+    const returnsContent =
+        document.querySelector(
+            ".static_returns"
+        );
+
+    if (returnsContent) {
+
+        returnsContent.innerHTML =
+            translations[lang].returns_text;
+
+    }
+
     const paymentContent =
         document.querySelector(
             ".static_payment"
@@ -462,7 +497,7 @@ updateLanguageButton();
 // =======================
 
 const BASE_URL =
-  "https://sunleon-cms-production.up.railway.app";
+    "https://sunleon-cms-production.up.railway.app";
 
 
 // =======================

@@ -593,7 +593,7 @@ async function loadRelatedProducts() {
     try {
 
         const response = await fetch(
-            `${BASE_URL}/items/bag_collection?fields=*,bag_variants.*,bag_variants.cover_img.*`
+            `${BASE_URL}/items/bag_collection?fields=*,bag_variants.*,bag_variants.cover_img.*,bag_variants.color.hex`
         );
 
         const result = await response.json();
@@ -635,20 +635,40 @@ async function loadRelatedProducts() {
 }
 
 document
-    .querySelectorAll(
-        ".detail_header"
-    )
+    .querySelectorAll(".detail_header")
     .forEach(header => {
 
         header.addEventListener(
             "click",
             () => {
 
-                header
-                    .parentElement
-                    .classList.toggle(
+                const currentItem =
+                    header.parentElement;
+
+                const isActive =
+                    currentItem.classList.contains(
                         "active"
                     );
+
+                document
+                    .querySelectorAll(
+                        ".detail_item"
+                    )
+                    .forEach(item => {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+                if (!isActive) {
+
+                    currentItem.classList.add(
+                        "active"
+                    );
+
+                }
 
             }
         );
