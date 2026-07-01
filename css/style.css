@@ -1247,7 +1247,7 @@ body.dark-mode .price {
 .single_product_image {
   flex: 0 0 100%;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
   scroll-snap-align: start;
