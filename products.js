@@ -284,11 +284,6 @@ async function loadProducts() {
 
         // LOOP PRODUCTS
 
-        // products.forEach(product => {
-
-        //     productsSection.innerHTML +=
-        //         createProductCard(product);
-
         // });
 
         let cardsHTML = "";

@@ -50,6 +50,56 @@ async function loadHeroCategory() {
 
 loadHeroCategory();
 
+const shopByCategoryContainer =
+    document.getElementById(
+        "shop-by-category"
+    );
+
+async function loadShopByCategory() {
+
+    if (!shopByCategoryContainer) return;
+
+    try {
+
+        const response =
+            await fetch(
+                `${BASE_URL}/items/categories`
+            );
+
+        const result =
+            await response.json();
+
+        const categories =
+            result.data;
+
+        shopByCategoryContainer.innerHTML =
+            categories
+                .map(category => `
+                    <a
+                        href="products.html?category=${category.slug}"
+                        class="category_chip"
+                    >
+                        ${
+                            currentLang === "ka"
+                            ? category.name_ka
+                            : category.name_en
+                        }
+                    </a>
+                `)
+                .join("");
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+loadShopByCategory();
+
 const videoReviewSection =
     document.querySelector(
         ".video_review"

@@ -5,8 +5,10 @@ const translations = {
 
     en: {
         categories: "Categories",
+        shop_by_category: "Shop By Category",
         colors: "Colors",
         color_label: "Color:",
+        real_life: "See It in Motion",
         name_asc: "Name (A-Z)",
         name_desc: "Name (Z-A)",
         price_asc: "Price (Low to High)",
@@ -63,9 +65,11 @@ const translations = {
 
     ka: {
         categories: "კატეგორიები",
+        shop_by_category: "კატეგორიების მიხედვით",
         sort: "დალაგება",
         colors: "ფერი",
         color_label: "ფერი:",
+        real_life: "რეალურ ცხოვრებაში",
         name_asc: "სახელი (ა-ჰ)",
         name_desc: "სახელი (ჰ-ა)",
         price_asc: "ფასი (დაბლიდან მაღლისკენ)",
@@ -305,6 +309,10 @@ function initHeader() {
                 }
                 if (typeof loadHeroCategory === "function") {
                     loadHeroCategory();
+                }
+
+                if (typeof loadShopByCategory === "function") {
+                    loadShopByCategory();
                 }
 
                 if (typeof loadVideoReviews === "function") {
@@ -765,15 +773,9 @@ function createProductCard(product) {
 
         product.bag_variants?.[0];
 
-    // console.log(product.bag_variants[0]);
-
-    // თუ variant არ არსებობს
-
     if (!firstVariant) return;
 
     // IMAGE URL
-
-    // console.log(firstVariant.cover_img);
 
     const imageUrl =
 
@@ -953,3 +955,33 @@ function createProductCard(product) {
     return card;
 
 };
+
+const observer = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+document
+    .querySelectorAll(".fade-in")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
