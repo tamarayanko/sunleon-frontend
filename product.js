@@ -82,11 +82,6 @@ async function loadProduct() {
         const product =
             result.data[0];
 
-        console.log(product);
-
-        console.log(product.categories);
-        console.log(product.categories[0].categories_id);
-
         document.getElementById(
             "description-content"
         ).textContent =
@@ -134,6 +129,20 @@ async function loadProduct() {
 
         let currentVariant =
             product.bag_variants[0];
+
+        const colorNameElement =
+            document.getElementById(
+                "selectedColorName"
+            );
+
+        function updateSelectedColor(variant) {
+
+            colorNameElement.textContent =
+                currentLang === "ka"
+                    ? variant.color?.name_ka || ""
+                    : variant.color?.name_en || "";
+
+        }
 
         if (
             product.bag_variants.length <= 1
@@ -228,6 +237,10 @@ async function loadProduct() {
                             currentVariant
                         );
 
+                        updateSelectedColor(
+                            currentVariant
+                        );
+
                         buildImagesArray(
                             currentVariant
                         );
@@ -253,6 +266,10 @@ async function loadProduct() {
             );
 
         renderPrice(
+            currentVariant
+        );
+
+        updateSelectedColor(
             currentVariant
         );
 
@@ -593,7 +610,7 @@ async function loadRelatedProducts() {
     try {
 
         const response = await fetch(
-            `${BASE_URL}/items/bag_collection?fields=*,bag_variants.*,bag_variants.cover_img.*,bag_variants.color.hex`
+            `${BASE_URL}/items/bag_collection?fields=*,bag_variants.*,bag_variants.cover_img.*,bag_variants.color.hex,bag_variants.color.name_ka,bag_variants.color.name_en`
         );
 
         const result = await response.json();
@@ -623,8 +640,6 @@ async function loadRelatedProducts() {
                 createProductCard(product);
 
         });
-
-        console.log(products);
 
     } catch (error) {
 

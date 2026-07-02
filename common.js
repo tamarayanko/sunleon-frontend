@@ -6,6 +6,7 @@ const translations = {
     en: {
         categories: "Categories",
         colors: "Colors",
+        color_label: "Color:",
         name_asc: "Name (A-Z)",
         name_desc: "Name (Z-A)",
         price_asc: "Price (Low to High)",
@@ -64,6 +65,7 @@ const translations = {
         categories: "კატეგორიები",
         sort: "დალაგება",
         colors: "ფერი",
+        color_label: "ფერი:",
         name_asc: "სახელი (ა-ჰ)",
         name_desc: "სახელი (ჰ-ა)",
         price_asc: "ფასი (დაბლიდან მაღლისკენ)",
@@ -763,7 +765,7 @@ function createProductCard(product) {
 
         product.bag_variants?.[0];
 
-    console.log(product.bag_variants[0]);
+    // console.log(product.bag_variants[0]);
 
     // თუ variant არ არსებობს
 
@@ -771,7 +773,7 @@ function createProductCard(product) {
 
     // IMAGE URL
 
-    console.log(firstVariant.cover_img);
+    // console.log(firstVariant.cover_img);
 
     const imageUrl =
 

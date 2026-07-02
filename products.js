@@ -61,7 +61,6 @@ async function loadProducts() {
         let products =
             result.data;
 
-
         // CATEGORY FILTER
 
         if (currentCategory) {
@@ -76,7 +75,7 @@ async function loadProducts() {
 
                             item =>
 
-                                item.categories_id.slug ===
+                                item.categories_id?.slug ===
                                 currentCategory
 
                         )
@@ -93,7 +92,7 @@ async function loadProducts() {
 
             const category = products[0]?.categories?.find(
                 item =>
-                    item.categories_id.slug ===
+                    item.categories_id?.slug ===
                     currentCategory
             );
 
