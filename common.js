@@ -9,11 +9,20 @@ const translations = {
         colors: "Colors",
         color_label: "Color:",
         real_life: "See It in Motion",
+        story_promo_badge: "Instagram Story Promotion",
+        story_promo_title: "Share Your SUNLEON",
+        story_promo_text_before:
+            "Take a photo or video with your SUNLEON bag, share it on your Instagram Story, tag us, and receive",
+        story_promo_discount:
+            "20% OFF",
+        story_promo_text_after:
+            "on any bag with your next order.",
         name_asc: "Name (A-Z)",
         name_desc: "Name (Z-A)",
         price_asc: "Price (Low to High)",
         price_desc: "Price (High to Low)",
         made_in_georgia: "Made in Georgia",
+        stock_label: "Stock:",
         buy_instagram: "Buy on Instagram",
         description: "Product Description",
         care: "Care Instructions",
@@ -24,6 +33,79 @@ const translations = {
         follow_us: "Follow Us",
         faq_information: "FAQ & Information",
         related_products: "Similar Products",
+        faq_title: "FAQ & Information",
+
+        faq_subtitle:
+            "Everything you need to know about ordering, delivery, payments and product care.",
+
+        faq_order_title:
+            "How can I place an order?",
+
+        faq_order_text:
+            "Orders can be placed through Instagram or Facebook chat. Send us the desired model, color, and your contact information, or simply share the product link. Our team will contact you to confirm the order.",
+
+        faq_material_title:
+            "What materials are used?",
+
+        faq_material_text:
+            "SUNLEON bags are made from delicate eco-leather, selected for its durability and elegant appearance.",
+
+        faq_origin_title:
+            "Where are the products made?",
+
+        faq_origin_text:
+            "The products are manufactured to order in a factory located in Turkey. Therefore, all bags are of Turkish production.",
+
+        faq_warranty_title:
+            "Do the bags come with a warranty?",
+
+        faq_warranty_text:
+            "Our bags do not require a warranty. By following the recommended care instructions, they will maintain their quality and appearance for a long time.",
+
+        faq_stock_title:
+            "What if a product is out of stock?",
+
+        faq_stock_text:
+            "Each model arrives in Georgia in limited quantities. If your desired bag is currently unavailable, you may contact us and place a pre-order.",
+
+        faq_colors_title:
+            "Colors & Product Photos",
+
+        faq_colors_text:
+            "We strive to display product colors as accurately as possible. However, actual colors may vary slightly depending on your screen settings.",
+
+        faq_delivery_title:
+            "Delivery Information",
+
+        faq_payment_title:
+            "Payment Methods",
+
+        faq_returns_title:
+            "Returns & Exchanges",
+
+        faq_care_title:
+            "Product Care",
+
+        faq_sizes_title:
+            "Bag Dimensions",
+
+        faq_sizes_text:
+            "Each product page includes detailed bag dimensions. We recommend comparing them with a bag you already own to better understand its capacity and proportions.",
+
+        faq_about_title:
+            "About SUNLEON",
+
+        faq_about_text:
+            "SUNLEON offers modern, practical and elegant bags designed for everyday use. Our goal is to provide quality products, diverse designs and a comfortable shopping experience.",
+
+        faq_why_title:
+            "Why SUNLEON?",
+        why_1: "Modern Designs",
+        why_2: "Wide Variety of Colors",
+        why_3: "Limited Collections",
+        why_4: "Quality Control Before Shipping",
+        why_5: "Nationwide Delivery",
+
         care_text: `
         <p>The bag is made from eco-leather. To preserve its appearance and durability, please follow these care instructions:</p>
         <p>• Do not use chemical solutions or cleaning products containing harsh chemicals;</p>
@@ -69,7 +151,16 @@ const translations = {
         sort: "დალაგება",
         colors: "ფერი",
         color_label: "ფერი:",
+        stock_label: "მარაგი:",
         real_life: "რეალურ ცხოვრებაში",
+        story_promo_badge: "Instagram Story აქცია",
+        story_promo_title: "გაუზიარე ემოცია მეგობრებს",
+        story_promo_text_before:
+            "გადაიღე ფოტო ან ვიდეო SUNLEON-ის ჩანთით, გამოაქვეყნე Instagram Story-ზე, მოგვნიშნე და შემდეგ შეკვეთაზე მიიღე",
+        story_promo_discount:
+            "20% ფასდაკლება",
+        story_promo_text_after:
+            "ნებისმიერ ჩანთაზე.",
         name_asc: "სახელი (ა-ჰ)",
         name_desc: "სახელი (ჰ-ა)",
         price_asc: "ფასი (დაბლიდან მაღლისკენ)",
@@ -85,6 +176,101 @@ const translations = {
         follow_us: "გამოგვყევით",
         faq_information: "კითხვები და ინფორმაცია",
         related_products: "მსგავსი პროდუქტები",
+        faq_title: "FAQ & Information",
+
+        faq_subtitle:
+
+            "ყველაფერი რაც უნდა იცოდეთ შეკვეთის, მიწოდების, გადახდისა და პროდუქტის მოვლის შესახებ.",
+
+        faq_order_title:
+
+            "როგორ შევუკვეთო?",
+
+        faq_order_text:
+
+            "შეკვეთის გაფორმება შეგიძლიათ Instagram-ისა და Facebook-ის ჩათების მეშვეობით. მოგვწერეთ სასურველი მოდელი, ფერი და თქვენი საკონტაქტო ინფორმაცია ან გაგვიზიარეთ პროდუქტის ლინკი. ჩვენი გუნდი დაგიკავშირდებათ შეკვეთის დასადასტურებლად.",
+
+        faq_material_title:
+
+            "რა მასალისგანაა დამზადებული?",
+
+        faq_material_text:
+
+            "SUNLEON-ის ჩანთები დამზადებულია დელიკატური ეკო-ტყავისგან, რომელიც გამოირჩევა გამძლეობითა და დახვეწილი ვიზუალით.",
+
+        faq_origin_title:
+
+            "სად იწარმოება პროდუქტი?",
+
+        faq_origin_text:
+
+            "პროდუქტი მზადდება შეკვეთით თურქეთის საწარმოში. შესაბამისად, ჩანთები თურქული წარმოებისაა.",
+
+        faq_warranty_title:
+
+            "აქვს თუ არა ჩანთებს გარანტია?",
+
+        faq_warranty_text:
+
+            "ჩვენი ჩანთები არ საჭიროებს გარანტიას. მოვლის რეკომენდაციების სრულად დაცვის შემთხვევაში ისინი დიდხანს შეინარჩუნებენ ხარისხსა და პირვანდელ იერსახეს.",
+
+        faq_stock_title:
+
+            "თუ პროდუქტი მარაგში არ არის?",
+
+        faq_stock_text:
+
+            "თითოეული მოდელი საქართველოში ჩამოდის შეზღუდული რაოდენობით. თუ სასურველი ჩანთა ამჟამად მარაგში არ არის, შეგიძლიათ დაგვიკავშირდეთ და წინასწარ გააფორმოთ შეკვეთა.",
+
+        faq_colors_title:
+
+            "ფერები და ფოტოები",
+
+        faq_colors_text:
+
+            "ვცდილობთ პროდუქტის ფერები მაქსიმალურად ზუსტად წარმოვაჩინოთ. სხვადასხვა ეკრანის პარამეტრების გამო რეალური ფერი შესაძლოა მცირედით განსხვავდებოდეს ფოტოზე ნაჩვენებისგან.",
+
+        faq_delivery_title:
+
+            "მიწოდების ინფორმაცია",
+
+        faq_payment_title:
+
+            "გადახდის მეთოდები",
+
+        faq_returns_title:
+
+            "დაბრუნება და გადაცვლა",
+
+        faq_care_title:
+
+            "პროდუქტის მოვლა",
+
+        faq_sizes_title:
+
+            "ჩანთის ზომები",
+
+        faq_sizes_text:
+
+            "თითოეული პროდუქტის გვერდზე მითითებულია ჩანთის ზომები. გირჩევთ შეადაროთ აღნიშნული მონაცემები თქვენს არსებულ ჩანთას, რათა უკეთ შეაფასოთ მისი მოცულობა და პრაქტიკულობა.",
+
+        faq_about_title:
+
+            "SUNLEON-ის შესახებ",
+
+        faq_about_text:
+
+            "SUNLEON გთავაზობთ თანამედროვე, პრაქტიკულ და დახვეწილ ჩანთებს ყოველდღიური გამოყენებისთვის. ჩვენი მიზანია მომხმარებელს შევთავაზოთ ხარისხიანი პროდუქცია, მრავალფეროვანი დიზაინი და კომფორტული მომსახურება.",
+
+        faq_why_title:
+
+            "რატომ SUNLEON?",
+
+        why_1: "თანამედროვე დიზაინი",
+        why_2: "მრავალფეროვანი ფერები",
+        why_3: "შეზღუდული რაოდენობის კოლექციები",
+        why_4: "ხარისხის კონტროლი გაგზავნამდე",
+        why_5: "მიწოდება მთელი საქართველოს მასშტაბით",
         care_text: `
             <p>ჩანთა დამზადებულია ეკო ტყავისგან, ამიტომ მისი სილამაზისა და გამძლეობის შესანარჩუნებლად რეკომენდებულია შემდეგი წესების დაცვა:</p>
             <p>• არ გამოიყენოთ ქიმიური ხსნარები ან ქიმიური ნივთიერებების შემცველი საწმენდი საშუალებები;</p>
@@ -383,12 +569,12 @@ function changeLanguage(lang) {
         });
 
     const careContent =
-        document.getElementById(
-            "care-content"
+
+        document.querySelector(
+            ".static_care"
         );
 
     if (careContent) {
-
         careContent.innerHTML =
             translations[lang].care_text;
 
@@ -427,6 +613,19 @@ function changeLanguage(lang) {
 
         paymentContent.innerHTML =
             translations[lang].payment_text;
+    }
+
+    const faqWhyContent =
+        document.querySelector(
+            ".faq_why_content"
+        );
+
+    if (faqWhyContent) {
+
+        faqWhyContent.innerHTML =
+            translations[lang]
+                .faq_why_text;
+
     }
 
     updateSortOptions();

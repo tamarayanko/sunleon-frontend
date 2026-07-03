@@ -135,6 +135,11 @@ async function loadProduct() {
                 "selectedColorName"
             );
 
+        const stockCountElement =
+            document.getElementById(
+                "stockCount"
+            );
+
         function updateSelectedColor(variant) {
 
             colorNameElement.textContent =
@@ -142,15 +147,12 @@ async function loadProduct() {
                     ? variant.color?.name_ka || ""
                     : variant.color?.name_en || "";
 
-        }
-
-        if (
-            product.bag_variants.length <= 1
-        ) {
-
-            variantsSection.style.display =
-                "none";
-
+            stockCountElement.textContent =
+                variant.stock > 0
+                    ? `${variant.stock}`
+                    : (currentLang === "ka"
+                        ? "არ არის მარაგში"
+                        : "Out of Stock");
         }
 
         product.bag_variants.forEach(
