@@ -212,7 +212,7 @@ async function loadBestSellers() {
                     product.categories?.some(
                         item =>
                             item.categories_id.slug ===
-                            "bestsellers"
+                            "best-sellers"
                     )
             );
 

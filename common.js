@@ -9,6 +9,7 @@ const translations = {
         colors: "Colors",
         color_label: "Color:",
         real_life: "See It in Motion",
+        video_section_title: "In Your Hands",
         story_promo_badge: "Instagram Story Promotion",
         story_promo_title: "Share Your SUNLEON",
         story_promo_text_before:
@@ -152,6 +153,7 @@ const translations = {
         colors: "ფერი",
         color_label: "ფერი:",
         stock_label: "მარაგი:",
+        video_section_title: "შენს ხელში",
         real_life: "რეალურ ცხოვრებაში",
         story_promo_badge: "Instagram Story აქცია",
         story_promo_title: "გაუზიარე ემოცია მეგობრებს",
