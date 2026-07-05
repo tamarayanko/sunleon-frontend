@@ -69,13 +69,14 @@
   <body>
     <div class="main_container">
       <div id="header"></div>
+
       <section class="hero_section">
         <img src="assets/newhero1.png" alt="New Arrivals" class="hero_image" />
-        <div class="hero_overlay">
+        <div class="hero_overlay fade-in">
           <a href="#" class="hero_category_btn">New Arrivals</a>
         </div>
       </section>
-      <section class="sales fade-in"></section>
+
       <section class="shop_by_category_section">
         <div class="section_header">
           <h2 class="section_title" data-key="shop_by_category">
@@ -84,13 +85,51 @@
         </div>
         <div class="shop_by_category" id="shop-by-category"></div>
       </section>
+
+      <section class="sales fade-in"></section>
+
       <div class="video_devider"></div>
-      <section class="video_review_section">
-        <h2 class="video_section_title" data-key="video_section_title">
-          შენს ხელში
-        </h2>
-        <section class="video_review"></section>
+
+      <section class="best_sellers_section">
+        <h2 class="best_sellers_title" data-key="bestsellers">Bestsellers</h2>
+        <section class="best_sellers"></section>
       </section>
+
+      <section class="why_sunleon_section fade-in">
+        <article class="about_card fade-in">
+          <i class="faq_icon fa-solid fa-sun"></i>
+
+          <h2 data-key="faq_about_title"></h2>
+
+          <p data-key="faq_about_text"></p>
+        </article>
+
+        <div class="why_card">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span data-key="why_1"></span>
+        </div>
+
+        <div class="why_card">
+          <i class="fa-solid fa-palette"></i>
+          <span data-key="why_2"></span>
+        </div>
+
+        <div class="why_card">
+          <i class="fa-solid fa-gem"></i>
+          <span data-key="why_3"></span>
+        </div>
+
+        <div class="why_card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span data-key="why_4"></span>
+        </div>
+
+        <div class="why_card">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span data-key="why_5"></span>
+        </div>
+      </section>
+
       <section class="screenshots">
         <div class="screenshots_container">
           <div class="screenshots_image fade-in">
@@ -124,11 +163,16 @@
           </div>
         </div>
       </section>
-      <section class="best_sellers_section">
-        <h2 class="best_sellers_title" data-key="bestsellers">Bestsellers</h2>
-        <section class="best_sellers"></section>
+
+      <section class="video_review_section">
+        <h2 class="video_section_title" data-key="video_section_title">
+          შენს ხელში
+        </h2>
+        <section class="video_review"></section>
       </section>
+
       <footer id="footer" class="fade-in"></footer>
+
     </div>
     <script src="common.js"></script>
     <script src="script.js"></script>
