@@ -530,7 +530,7 @@ let currentLang =
         "language"
     )
 
-    || "en";
+    || "ka";
 
 const langButtons =
     document.querySelectorAll(
