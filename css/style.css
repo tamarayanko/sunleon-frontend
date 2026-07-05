@@ -855,6 +855,10 @@ body.dark-mode .category_chip:hover {
   color: var(--mainGold);
 }
 
+.why_card span{
+  font-family: var(--mainFont);
+}
+
 .why_card:nth-of-type(1) {
   grid-area: card1;
 }
@@ -877,6 +881,7 @@ body.dark-mode .category_chip:hover {
 
 @media (max-width: 768px) {
   .why_sunleon_section {
+    padding: 2rem 1rem;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 0.5rem;
