@@ -36,6 +36,10 @@ const currentSale =
         window.location.search
     ).get("sale");
 
+const searchInput = document.getElementById("product-search");
+const clearSearchBtn = document.querySelector(".search_clear");
+const emptyState = document.querySelector(".search_empty_state");
+
 // =======================
 // LOAD PRODUCTS
 // =======================
@@ -138,6 +142,34 @@ async function loadProducts() {
 
         }
 
+        // SEARCH
+
+        const searchValue =
+            searchInput?.value
+                .trim()
+                .toLowerCase();
+
+        if (searchValue) {
+
+            products =
+                products.filter(product => {
+
+                    const productName =
+
+                        currentLang === "ka"
+
+                            ? product.name_ka
+
+                            : product.name_en;
+
+                    return productName
+                        .toLowerCase()
+                        .includes(searchValue);
+
+                });
+
+        }
+
         // SORTING
 
         const sortValue =
@@ -148,7 +180,11 @@ async function loadProducts() {
         ) {
 
             const variant =
-                product.bag_variants[0];
+                getPrimaryVariant(product);
+
+            if (!variant) {
+                return 0;
+            }
 
             return (
                 variant.discount_price
@@ -278,6 +314,54 @@ async function loadProducts() {
 
         }
 
+        // MOVE OUT OF STOCK PRODUCTS TO THE END
+
+        products.sort((a, b) => {
+
+            const aHasStock =
+                a.bag_variants.some(
+                    variant => variant.stock > 0
+                );
+
+            const bHasStock =
+                b.bag_variants.some(
+                    variant => variant.stock > 0
+                );
+
+            if (aHasStock === bHasStock) {
+                return 0;
+            }
+
+            return aHasStock ? -1 : 1;
+
+        });
+
+        // SEARCH UI
+
+        if (searchInput.value.trim()) {
+
+            clearSearchBtn.style.display = "flex";
+
+        } else {
+
+            clearSearchBtn.style.display = "none";
+
+        }
+
+        if (products.length === 0) {
+
+            productsSection.style.display = "none";
+
+            emptyState.style.display = "flex";
+
+        } else {
+
+            productsSection.style.display = "grid";
+
+            emptyState.style.display = "none";
+
+        }
+
         // CLEAR SECTION
 
         productsSection.innerHTML = "";
@@ -344,3 +428,25 @@ if (
     );
 
 }
+
+searchInput?.addEventListener(
+    "input",
+    () => {
+
+        loadProducts();
+
+    }
+);
+
+clearSearchBtn?.addEventListener(
+    "click",
+    () => {
+
+        searchInput.value = "";
+
+        loadProducts();
+
+        searchInput.focus();
+
+    }
+);

@@ -39,6 +39,7 @@
       <div class="products_header">
         <div class="products_header_top">
           <h2 class="category_title"></h2>
+
           <select id="sort-select">
             <option value="name-asc" data-sort="name_asc"></option>
             <option value="name-desc" data-sort="name_desc"></option>
@@ -46,10 +47,38 @@
             <option value="price-desc" data-sort="price_desc"></option>
           </select>
         </div>
+
         <p class="products_count"></p>
       </div>
+
       <div class="divider"></div>
+
+      <div class="products_search_container">
+        <div class="products_search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="product-search"
+            autocomplete="off"
+            data-placeholder="search_placeholder"
+          />
+
+          <button class="search_clear" type="button" aria-label="Clear search">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
       <section class="products_section fade-in"></section>
+
+      <div class="search_empty_state">
+        <img src="assets/noResult.png" alt="No products found" />
+
+        <h3 data-key="search_empty_title">No bags found</h3>
+
+        <p data-key="search_empty_text">Try searching for another product.</p>
+      </div>
     </div>
     <footer id="footer" class="fade-in"></footer>
     <script src="common.js"></script>

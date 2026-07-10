@@ -82,6 +82,19 @@ async function loadProduct() {
         const product =
             result.data[0];
 
+        product.bag_variants.sort((a, b) => {
+
+            const aHasStock = a.stock > 0;
+            const bHasStock = b.stock > 0;
+
+            if (aHasStock === bHasStock) {
+                return 0;
+            }
+
+            return aHasStock ? -1 : 1;
+
+        });
+
         document.getElementById(
             "description-content"
         ).textContent =
@@ -128,7 +141,7 @@ async function loadProduct() {
                 : product.name_en;
 
         let currentVariant =
-            product.bag_variants[0];
+            getPrimaryVariant(product);
 
         const colorNameElement =
             document.getElementById(
@@ -165,7 +178,7 @@ async function loadProduct() {
                     "variant_card"
                 );
 
-                if (index === 0) {
+                if (variant.id === currentVariant.id) {
 
                     variantCard.classList.add(
                         "active"
@@ -180,7 +193,7 @@ async function loadProduct() {
                 variantCard.dataset.hex =
                     variant.color.hex;
 
-                if (index === 0) {
+                if (variant.id === currentVariant.id) {
 
                     variantCard.style.border =
                         "3px solid #d4af37";

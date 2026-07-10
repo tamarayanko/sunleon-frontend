@@ -4,6 +4,10 @@ console.log("script initialized");
 const translations = {
 
     en: {
+        search_placeholder: "Search bags...",
+        search_empty_title: "No bags found",
+        search_empty_text:
+            "Try searching for another product.",
         categories: "Categories",
         shop_by_category: "Shop By Category",
         colors: "Colors",
@@ -147,6 +151,10 @@ const translations = {
     },
 
     ka: {
+        search_placeholder: "მოძებნე ჩანთა...",
+        search_empty_title: "პროდუქტი ვერ მოიძებნა",
+        search_empty_text:
+            "სცადეთ სხვა სახელის მოძებნა.",
         categories: "კატეგორიები",
         shop_by_category: "კატეგორიების მიხედვით",
         sort: "დალაგება",
@@ -630,6 +638,18 @@ function changeLanguage(lang) {
 
     }
 
+    document
+        .querySelectorAll("[data-placeholder]")
+        .forEach(element => {
+
+            const key =
+                element.dataset.placeholder;
+
+            element.placeholder =
+                translations[lang][key];
+
+        });
+
     updateSortOptions();
 
 }
@@ -709,6 +729,26 @@ updateLanguageButton();
 
 const BASE_URL =
     "https://sunleon-cms-production.up.railway.app";
+
+
+// =======================
+// PRIMARY VARIANT
+// =======================
+
+function getPrimaryVariant(product) {
+
+    if (!product?.bag_variants?.length) {
+        return null;
+    }
+
+    const availableVariant =
+        product.bag_variants.find(
+            variant => variant.stock > 0
+        );
+
+    return availableVariant || product.bag_variants[0];
+
+}
 
 
 // =======================
@@ -971,8 +1011,7 @@ if (footer) {
 
 function createProductCard(product) {
     const firstVariant =
-
-        product.bag_variants?.[0];
+        getPrimaryVariant(product);
 
     if (!firstVariant) return;
 
@@ -1029,6 +1068,24 @@ function createProductCard(product) {
     const hasDiscount =
 
         firstVariant.discount_price;
+
+    const isOutOfStock =
+        product.bag_variants.every(variant => {
+
+            console.log(
+                variant.color?.name_en,
+                variant.stock,
+                typeof variant.stock
+            );
+
+            return Number(variant.stock) <= 0;
+
+        });
+
+    console.log(
+        product.name_en,
+        isOutOfStock
+    );
 
     // MADE IN GEORGIA BADGE
 
@@ -1115,6 +1172,19 @@ function createProductCard(product) {
                 >
 
                     <div class="product_image_wrapper">
+
+                        ${isOutOfStock ? `
+
+                        <div class="out_of_stock_overlay">
+
+                            ${currentLang === "ka"
+                ? "არ არის მარაგში"
+                : "Out of Stock"}
+
+                        </div>
+
+                        ` : ""}
+
                         ${hasDiscount ? `
 
                         <div class="discount_badge">
@@ -1124,13 +1194,16 @@ function createProductCard(product) {
                         </div>
 
                         ` : ""}
+
                         ${madeInGeorgiaBadge}
+
                         <img
                             src="${imageUrl}"
                             alt="${productName}"
                             loading="lazy"
                             class="product_image"
                         />
+
                         <div class="product_colors_preview">
 
                             ${colorsHTML}
