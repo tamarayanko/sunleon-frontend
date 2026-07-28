@@ -896,13 +896,13 @@ if (header) {
             >
 
                 <img
-                    src="assets/namelogo.jpg"
+                    src="assets/newnamelogo.jpeg"
                     alt=""
                     class="namelogo"
                 />
 
                 <img
-                    src="assets/dark_logo.jpg"
+                    src="assets/newdarklogo.jpeg"
                     alt=""
                     class="dark_logo"
                 />
