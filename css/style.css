@@ -1,5 +1,7 @@
 :root {
-  --mainGold: #d4af37;
+  /* --mainGold: #d4af37; */
+  --mainGold: #cda857;
+
   --mainBlack: #000000;
   --mainWhite: #fffdf8;
   --mainRed: #b20101;
@@ -57,6 +59,8 @@ body.dark-mode .product_loader {
 .product_loader_logo {
   width: 192px;
   height: 192px;
+  scale: 2.5;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   animation: productLoaderSpin 4s linear infinite;
 }
@@ -2397,6 +2401,7 @@ body.dark-mode .footer_container {
 .footer_logo img {
   width: 90px;
   height: auto;
+  scale: 2.5;
   animation: footerLogoSpinner 30s linear infinite;
 }
 
