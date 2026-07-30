@@ -1,7 +1,7 @@
 :root {
   /* --mainGold: #d4af37; */
-  --mainGold: #cda857;
-
+  /* --mainGold: #cda857; */
+  --mainGold: #C1984A;
   --mainBlack: #000000;
   --mainWhite: #fffdf8;
   --mainRed: #b20101;
@@ -59,10 +59,10 @@ body.dark-mode .product_loader {
 .product_loader_logo {
   width: 192px;
   height: 192px;
-  scale: 2.5;
+  scale: 1.2;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  animation: productLoaderSpin 4s linear infinite;
+  animation: productLoaderSpin 6s linear infinite;
 }
 
 .product_loader_text {
@@ -231,12 +231,12 @@ header {
 }
 
 .namelogo {
-  height: 65px;
+  height: 150px;
   width: auto;
 }
 
 .dark_logo {
-  height: 65px;
+  height: 150px;
   width: auto;
 }
 
@@ -2401,7 +2401,7 @@ body.dark-mode .footer_container {
 .footer_logo img {
   width: 90px;
   height: auto;
-  scale: 2.5;
+  scale: 1.5;
   animation: footerLogoSpinner 30s linear infinite;
 }
 

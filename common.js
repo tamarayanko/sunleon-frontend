@@ -896,15 +896,16 @@ if (header) {
             >
 
                 <img
-                    src="assets/newnamelogo.jpeg"
-                    alt=""
-                    class="namelogo"
-                />
+    src="assets/SUNLEON logo svg for web-06.svg"
+    class="namelogo"
+    // style="height:150px; width:auto;"
+>
 
                 <img
-                    src="assets/newdarklogo.jpeg"
+                    src="assets/SUNLEON logo svg for web-08.svg"
                     alt=""
                     class="dark_logo"
+                    style="height:150px; width:auto;"
                 />
 
             </a>
@@ -945,7 +946,7 @@ if (footer) {
                 class="footer_logo"
             >
                 <img
-                    src="./assets/logo.png"
+                    src="./assets/SUNLEON logo svg for web-10.svg"
                     alt="Logo"
                 >
             </a>
